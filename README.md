@@ -1,2 +1,2 @@
 # front_end_practice
-鎴戠殑鍓嶇瀛︿範瀹炶返锛歁ongoDB銆乵ysql銆乺edis銆乶odejs銆乺eact銆乺eact native銆亀ebpack銆乯ava銆乨ocker
+我的前端学习实践：MongoDB、mysql、redis、nodejs、react、react native、webpack、java、docker

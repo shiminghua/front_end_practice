@@ -1,0 +1,55 @@
+{
+  "name": "myobject",
+  "version": "0.0.1",
+  "description": "webpack开发测试",
+  "keywords": [
+    "webpack",
+    "react",
+    "nodejs",
+    "mongodb"
+  ],
+  "homepage": "http://www.love10.net/;http://line10.net/",
+  "bugs": {
+    "url": "http://www.love10.net/",
+    "email": "shiminghua2008@qq.com"
+  },
+  "license": "BSD",
+  "author": {
+    "name": "minghua.shi",
+    "email": "shiminghua2008@qq.com",
+    "url": "http://www.love10.net/"
+  },
+  "private": false,
+  "main": "app.js",
+  "scripts": {
+    "dev": "webpack-dev-server --devtool eval --inline --progress --hot --config webpack.config.dev.js",
+    "build": "",
+    "server": ""
+  },
+  "dependencies": {
+    "ejs": "^2.4.2",
+    "jquery": "^3.0.0",
+    "mustache": "^2.2.1",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1",
+    "webpack-hot-middleware": "^2.12.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.10.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "css-loader": "^0.23.1",
+    "extract-loader": "0.0.2",
+    "file-loader": "^0.9.0",
+    "glob": "^7.0.5",
+    "html-loader": "^0.4.3",
+    "html-webpack-plugin": "^2.21.0",
+    "image-webpack-loader": "^1.8.0",
+    "less": "^2.7.1",
+    "less-loader": "^2.2.3",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7"
+  }
+}
