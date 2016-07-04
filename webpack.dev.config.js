@@ -6,9 +6,13 @@ console.log(__dirname);
 module.exports = {
     entry: {
         index: [ 
+            'webpack/hot/dev-server',
+            'webpack-dev-server/client?http://127.0.0.1:8080/', // WebpackDevServer host and port
             './app/index/index.js' // Your appʼs entry point
         ],
         test: [ 
+            'webpack/hot/dev-server',
+            'webpack-dev-server/client?http://127.0.0.1:8080/', // WebpackDevServer host and port
             './app/test/index.js' // Your appʼs entry point
         ],
         vendors: ['react', 'react-dom']
@@ -48,14 +52,14 @@ module.exports = {
             // chunks: ['vendors']
         }),
         // js压缩
-        new webpack.optimize.UglifyJsPlugin({
-           compressor: {
-               warnings: false
-           },
-           comments: false,
-           except: ['$', 'exports', 'require'],
-           mangle: true
-        }),
+        // new webpack.optimize.UglifyJsPlugin({
+        //    compressor: {
+        //        warnings: false
+        //    },
+        //    comments: false,
+        //    except: ['$', 'exports', 'require'],
+        //    mangle: true
+        // }),
         // 热加载
         new webpack.HotModuleReplacementPlugin(),
         // 报错不退出

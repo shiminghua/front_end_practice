@@ -49,6 +49,7 @@ let webpackConfigBase = {
             {
                 test: /\.less$/,
                 exclude: /node_modules/,
+                // include: /^app\/*/,
                 loaders: [
                     'file?name=style/[name]/' + Package.version + '/[name].bundle.css',
                     'extract',
