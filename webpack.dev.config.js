@@ -7,7 +7,7 @@ let Path = require('path');
 let PackageConfig = require('./package.json');
 let Configure = require('./webpack/configure');
 let WebpackBaseConfig = require('./webpack.base.config');
-let Entry = require('./webpack/entry');
+
 
 let dateNow = new Date();
 let pluginsBaseConfig = WebpackBaseConfig.plugins;

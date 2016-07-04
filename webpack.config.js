@@ -3,21 +3,12 @@ let webpack = require('webpack');
 let Path = require('path');
 let PackageConfig = require('./package.json');
 let Configure = require('./webpack/configure');
+let HtmlPlugin = require('./webpack/htmlPlugin');
+let Entry = require('./webpack/entry');
 
 
 let WebpackConfig = {
-    entry: {
-        index: [ 
-            'webpack/hot/dev-server',
-            'webpack-dev-server/client?http://127.0.0.1:8080/', // WebpackDevServer host and port
-            './app/resources/index/index.js' // Your appʼs entry point
-        ],
-        test: [ 
-            'webpack/hot/dev-server',
-            'webpack-dev-server/client?http://127.0.0.1:8080/', // WebpackDevServer host and port
-            './app/resources/test/index.js' // Your appʼs entry point
-        ]
-    },
+    entry: Entry,
     output: {
         // 可能对应文件路径, 也可能是从 url 访问的情况下的路径
         path: Configure.build,
@@ -101,6 +92,12 @@ let WebpackConfig = {
         ]
     },
     plugins: [
+        // 设置开发模式
+        new webpack.DefinePlugin({
+            "process.env": {
+                NODE_ENV: JSON.stringify('production')
+            }
+        }),
         // 公共模块
         new webpack.optimize.CommonsChunkPlugin({
             name: 'commons',
@@ -111,14 +108,8 @@ let WebpackConfig = {
         // 热加载
         new webpack.HotModuleReplacementPlugin(),
         // 报错不退出
-        new webpack.NoErrorsPlugin(),
-        // 设置开发模式
-        new webpack.DefinePlugin({
-            "process.env": {
-                NODE_ENV: JSON.stringify('production')
-            }
-        })
-    ]
+        new webpack.NoErrorsPlugin()
+    ].concat(HtmlPlugin)
 };
 
 console.log(WebpackConfig);

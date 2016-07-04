@@ -20,21 +20,22 @@ pathsJS.dist.forEach(function(path, i) {
             // 'webpack/hot/dev-server',
             // 'webpack-dev-server/client?http://127.0.0.1:8080/', // WebpackDevServer host and port
             // './app/index/index.js' // Your appʼs entry point
-            entry[pathsJS.dir[i]] = [
-                'webpack-dev-server/client?' + Configure.http,
-                'webpack/hot/only-dev-server',
-                path
-                ];
+            // entry[pathsJS.dir[i]] = [
+            //     'webpack-dev-server/client?' + Configure.http,
+            //     'webpack/hot/only-dev-server',
+            //     path
+            //     ];
+            entry[pathsJS.dir[i]] = [path];
             break;
         case 'server':
-            entry[pathsJS.dir[i]] = [hotMiddlewareScript, path];
+            entry[pathsJS.dir[i]] = [path];
             break;
         case 'production':
-            entry[pathsJS.dir[i]] = path;
+            entry[pathsJS.dir[i]] = [path];
             break;
         // 默认为 production
         default :
-            entry[pathsJS.dir[i]] = path;
+            entry[pathsJS.dir[i]] = [path];
             break;
 
     }

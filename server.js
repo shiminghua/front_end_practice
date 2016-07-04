@@ -1,8 +1,8 @@
 'use strict';
 let webpack = require('webpack');
 let webpackDevServer = require('webpack-dev-server');
-// let configDev = require('./webpack.dev.config');
-let configDev = require('./webpack.config');
+let configDev = require('./webpack.dev.config');
+// let configDev = require('./webpack.config');
 let configure = require('./webpack/configure');
 
 let compiler = webpack(configDev);
