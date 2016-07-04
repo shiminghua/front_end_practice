@@ -32,7 +32,7 @@ WebpackConfigDev.devServer = {
     inline: true,
     progress: true,
     contentBase: 'build/',
-    outputPath: Configure.build(),
+    outputPath: Configure.build,
     stats: {color: true},
     historyApiFallback: true
 };

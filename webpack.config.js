@@ -1,70 +1,62 @@
+'use strict';
+let webpack = require('webpack');
+let PackageConfig = require('./package.json');
 
-var webpack = require('webpack');
-
-console.log(__dirname);
-
-module.exports = {
+let WebpackBaseConfig = {
+    // 入口文件
     entry: {
-        index: [ 
-            './app/index/index.js' // Your appʼs entry point
-        ],
-        test: [ 
-            './app/test/index.js' // Your appʼs entry point
-        ],
-        vendors: ['react', 'react-dom']
+        index: ['./app/resources/index/index.js'],
+        test: ['./app/resources/test/index.js']
     },
+    // 生成文件
     output: {
-        path: __dirname + '/build/',
-        publicPath: '/build/',
-        filename: '[name]/bundle.js'
+        // 可能对应文件路径, 也可能是从 url 访问的情况下的路径
+        path: './build/',
+        // 在 path 属性之前的, 比如调试或者 CDN 之类的域名
+        publicPath: 'http://127.0.0.1:8080/build/',
+        // 用来配置生成的文件名, 比如 [hash] 用于生成 Hash, 看文档 http://webpack.github.io/docs/configuration.html#output-filename
+        // filename: Path.normalize(Configure.build, 'javascript/[name]/[name]-' + PackageConfig.version + '.min.js'),
+        // chunkFilename: Path.normalize(Configure.build, 'javascript/[name]/[name]-' + PackageConfig.version + '.min.js')
+        filename: 'javascript/[name]/[name]-' + PackageConfig.version + '.min.js',
+        chunkFilename: 'javascript/[name]/[name]-' + PackageConfig.version + '.min.js'
     },
+    // 模块
     module: {
+        // 加载器
         loaders: [
+            // jsx 加载器
             {
-                test: /\.(js|jsx)$/,
-                exclude: /node_modules/,
-                loader: 'react-hot!babel?presets[]=react,presets[]=es2015,presets[]=stage-0'
+                test: /\.jsx$/,
+                // exclude: /node_modules/,
+                // include: /resources/,
+                // loader: 'react-hot!babel?presets[]=react,presets[]=es2015,presets[]=stage-0'
+                loaders: [
+                    'react-hot',
+                    'babel?presets[]=react,presets[]=es2015,presets[]=stage-0'
+                ]
             },
+            // js 加载器
             {
-                test: /\.less$/,
-                loader: 'style-loader!css-loader!less-loader'
-            },
-            {
-                test: /\.css$/,
-                loader: 'style-loader!css-loader'
-            },
-            {
-                test: /\.(png|jpg|jpeg)$/,
-                loader: 'url-loader?limit=8192'
+                test: /\.js$/,
+                // exclude: /node_modules/,
+                // include: /resources/,
+                // loader: 'react-hot!babel?presets[]=react,presets[]=es2015,presets[]=stage-0'
+                loaders: [
+                    'react-hot',
+                    'babel?presets[]=react,presets[]=es2015,presets[]=stage-0'
+                ]
             }
         ]
     },
+    resolve: {
+        extensions: ['', '.coffee', '.js', '.jsx']
+    },
     plugins: [
-        // 公共模块
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'commons',
-            filename: 'commons/react.min.js',
-            // minChunks: 2,
-            // chunks: ['vendors']
-        }),
-        // js压缩
-        new webpack.optimize.UglifyJsPlugin({
-           compressor: {
-               warnings: false
-           },
-           comments: false,
-           except: ['$', 'exports', 'require'],
-           mangle: true
-        }),
-        // 热加载
         new webpack.HotModuleReplacementPlugin(),
-        // 报错不退出
-        new webpack.NoErrorsPlugin(),
-        // 设置开发模式
-        new webpack.DefinePlugin({
-            "process.env": {
-                NODE_ENV: JSON.stringify('production')
-            }
-        })
+        new webpack.NoErrorsPlugin()
     ]
 };
+
+// console.log(WebpackBaseConfig);
+
+module.exports = WebpackBaseConfig;

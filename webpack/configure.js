@@ -5,18 +5,26 @@ let path = require('path');
  * 配置模块
 */
 const configure = {
+    environment: 'production',
     host: '127.0.0.1',
     port: 8080,
     node_host: 'localhost',
     node_port: 9090,
-    root: rootPath => path.join(__dirname, '../', rootPath || ''),
-    build: buildPath => path.join(__dirname, '../build/', buildPath || ''),
-    client: clientPath => path.join(__dirname, '../client/', clientPath || ''),
-    server: serverPath => path.join(__dirname, '../server/', serverPath || '')
+    root: path.join(__dirname, '../'),
+    build: path.join(__dirname, '../build/'),
+    dist: path.join(__dirname, '../dist/'),
+    client: path.join(__dirname, '../app/'),
+    server: path.join(__dirname, '../server/'), 
+    getRoot: rootPath => path.join(__dirname, '../', rootPath || ''),
+    getBuild: buildPath => path.join(__dirname, '../build/', buildPath || ''),
+    getClient: clientPath => path.join(__dirname, '../client/', clientPath || ''),
+    getServer: serverPath => path.join(__dirname, '../server/', serverPath || '')
 };
 
-configure.path = 'http://' + configure.host + (configure.port ? (':' + configure.port) : '') + '/';
+configure.path = configure.http = 'http://' + configure.host + (configure.port ? (':' + configure.port) : '') + '/';
 configure.node_path = 'http://' + configure.node_host + (configure.node_port ? (':' + configure.node_port) : '') + '/';
+
+configure.html = path.join(configure.client, '/views/**/*.html');
 
 // console.log('---------------config:', configure);
 // console.log(__dirname, __filename);

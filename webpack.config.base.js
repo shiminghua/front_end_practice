@@ -14,7 +14,7 @@ let webpackConfigBase = {
     // 生成的文件
     output: {
         // 可能对应文件路径, 也可能是从 url 访问的情况下的路径
-        path: Configure.build(),
+        path: Configure.build,
         // 我们也用, 在 path 属性之前的, 比如调试或者 CDN 之类的域名
         publicPath: '/',
         // 用来配置生成的文件名, 比如 [hash] 用于生成 Hash, 看文档 http://webpack.github.io/docs/configuration.html#output-filename
@@ -70,8 +70,8 @@ let webpackConfigBase = {
                 test: /\.(png|jpeg|jpg|gif)$/, // (png|jpe?g|gif)
                 exclude: 'node_modules',
                 loaders: process.env.NODE_ENV === 'development' ? 
-                    ['url?limit=4096&name=images/[path][name].[ext]&context=' + Configure.client()] : 
-                    ['url?limit=4096&name=images/[path][name].[ext]&context=' + Configure.client(), 
+                    ['url?limit=4096&name=images/[path][name].[ext]&context=' + Configure.client] : 
+                    ['url?limit=4096&name=images/[path][name].[ext]&context=' + Configure.client, 
                     'image-webpack?{progressive:true, optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}}']
             }
         ]
@@ -91,6 +91,6 @@ let webpackConfigBase = {
     plugins: plugins.concat(HtmlPlugin)
 };
 
-// console.log(webpackConfigBase);
+console.log(webpackConfigBase);
 
 module.exports = webpackConfigBase;

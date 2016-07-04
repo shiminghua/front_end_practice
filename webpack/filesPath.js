@@ -6,7 +6,7 @@ let Configure = require('./configure');
 // let clientPath =  Configure.client('resources/');
 // console.log(clientPath);
 function getPaths (pattern, o, n, t) {
-    // console.log('-------------', pattern);
+    // console.log('-------------', pattern, o, n);
     let paths = glob.sync(pattern);
     let dist, name, extName, arrPaths, rt;
     let files = {
@@ -30,12 +30,12 @@ function getPaths (pattern, o, n, t) {
         files.dir.push(arrPaths[rt]);
 
     });
-
+    console.log(files);
     return files;
 
 }
 
-// getPaths('E:\\modouyu\\mdy\\test\\webpack\\**\\*.js');
+// getPaths('E:\\git\\front_end_practice\\app\\resources\\**\\index.js', 'app/', 'build/');
 
 module.exports = {
     getPaths: getPaths
