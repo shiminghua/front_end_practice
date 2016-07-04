@@ -24,3 +24,7 @@
     运行命令
     npm run build
     npm run dev
+
+# webpack-dev-server 配置
+
+    contentBase:'./dist/view'  这里主要是将其运行目录设置为打包后的view目录。相对或绝对目录

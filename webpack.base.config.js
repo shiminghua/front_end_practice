@@ -31,7 +31,7 @@ let WebpackBaseConfig = {
             // jsx 加载器
             {
                 test: /\.jsx$/,
-                // exclude: /node_modules/,
+                exclude: /node_modules/,
                 // include: /resources/,
                 // loader: 'react-hot!babel?presets[]=react,presets[]=es2015,presets[]=stage-0'
                 loaders: [
@@ -42,7 +42,7 @@ let WebpackBaseConfig = {
             // js 加载器
             {
                 test: /\.js$/,
-                // exclude: /node_modules/,
+                exclude: /node_modules/,
                 // include: /resources/,
                 // loader: 'react-hot!babel?presets[]=react,presets[]=es2015,presets[]=stage-0'
                 loaders: [
