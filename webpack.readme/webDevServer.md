@@ -1,5 +1,7 @@
 # webpack-dev-server 指令注释
 
+    webpack-dev-server --devtool eval --inline --progress --hot --config webpack.dev.config.js
+
     webpack-dev-server - Starts a web service on localhost:8080
     1、--devtool eval - Creates source urls for your code. Making you able to pinpoint by filename and line number where any errors are thrown
     2、--progress - Will show progress of bundling your application

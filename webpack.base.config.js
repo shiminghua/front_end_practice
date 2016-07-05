@@ -1,18 +1,37 @@
 'use strict';
-let Webpack = require('webpack');
+let webpack = require('webpack');
 let Path = require('path');
 let PackageConfig = require('./package.json');
 let Configure = require('./webpack/configure');
 let HtmlPlugin = require('./webpack/htmlPlugin');
+let Entry = require('./webpack/entry');
 
+let NODE_ENV = process.env.NODE_ENV === 'production' ? 'production' : 'development';
+console.log(NODE_ENV);
+let pluginsArr = [
+    // 设置开发模式
+    new webpack.DefinePlugin({
+        "process.env": {
+            NODE_ENV: JSON.stringify(NODE_ENV)
+        }
+    }),
+    // 公共模块
+    new webpack.optimize.CommonsChunkPlugin({
+        // minChunks: 2,
+        // chunks: ['vendors'],
+        name: 'commons',
+        filename: 'javascript/commons/react.min.js'
+    }),
+    // 优化计数模块
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    // 报错不退出
+    new webpack.NoErrorsPlugin()
+];
 
-let dateNow = new Date();
-let pluginsArr = [];
-
-let WebpackBaseConfig = {
-    // 入口文件
-    entry: {},
-    // 生成文件
+let WebpackConfig = {
+    // 入口文件 - 多入口文件
+    entry: Entry,
+    // 输出配置
     output: {
         // 可能对应文件路径, 也可能是从 url 访问的情况下的路径
         path: Configure.build,
@@ -24,9 +43,8 @@ let WebpackBaseConfig = {
         filename: 'javascript/[name]/[name]-' + PackageConfig.version + '.min.js',
         chunkFilename: 'javascript/[name]/[name]-' + PackageConfig.version + '.min.js'
     },
-    // 模块
     module: {
-        // 加载器
+        // 加载器设置
         loaders: [
             // jsx 加载器
             {
@@ -67,7 +85,7 @@ let WebpackBaseConfig = {
                 exclude: /node_modules/,
                 // include: /^client\/*/,
                 loaders: [
-                    'file?name=style/[name]/[name]-' + PackageConfig.version + '.min.css',
+                    'file?name=style/[path][name]-' + PackageConfig.version + '.min.css&context=' + Path.join(Configure.client, 'resources/'),
                     'extract',
                     'css',
                     'less'
@@ -89,34 +107,32 @@ let WebpackBaseConfig = {
             {
                 test: /\.(png|jpeg|jpg|gif)$/, // (png|jpe?g|gif)
                 exclude: /node_modules/,
-                loader: 'url?limit=4096&name=images/[path]/[name].[ext]&context=' + Configure.client
-                // loaders: process.env.NODE_ENV === 'development' ? 
-                //     ['url?limit=4096&name=images/[path][name].[ext]&context=' + Configure.client] : 
-                //     ['url?limit=4096&name=images/[path][name].[ext]&context=' + Configure.client, 
-                //     'image-webpack?{progressive:true, optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}}']
+                // loader: 'url?limit=4096&name=images/[path]/[name].[ext]&context=' + Configure.client
+                loaders: process.env.NODE_ENV === 'development' ? 
+                    ['url?limit=4096&name=images/[path][name].[ext]&context=' + Path.join(Configure.client, 'resources/')] : 
+                    ['url?limit=4096&name=images/[path][name].[ext]&context=' + Path.join(Configure.client, 'resources/'), 
+                    'image-webpack?{progressive:true, optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}}']
             }
         ]
     },
     // 外部资源
-    // externals: {
-    //     "react": 'window.React',
-    //     'react-dom': 'window.ReactDOM',
-    //     "jQuery": 'window.jQuery'
-    // },
+    externals: {
+        // "react": 'window.React',
+        // 'react-dom': 'window.ReactDOM',
+        // "jQuery": 'window.jQuery'
+    },
     //其它解决方案配置
-    // resolve: {
-    //     root: 'E:/github/flux-example/src', //绝对路径
-    //     extensions: ['', '.js', '.json', '.scss'],
-    //     alias: {
-    //         AppStore : 'js/stores/AppStores.js',
-    //         ActionType : 'js/actions/ActionType.js',
-    //         AppAction : 'js/actions/AppAction.js'
-    //     }
-    // },
+    resolve: {
+        // root: 'E:/github/flux-example/src', //绝对路径
+        // alias: {
+        //     AppStore : 'js/stores/AppStores.js',
+        //     ActionType : 'js/actions/ActionType.js',
+        //     AppAction : 'js/actions/AppAction.js'
+        // },
+        extensions: ['', '.js', '.css', '.html', '.less', '.jsx']
+    },
     // 插件
     plugins: pluginsArr.concat(HtmlPlugin)
 };
 
-// console.log(WebpackBaseConfig);
-
-module.exports = WebpackBaseConfig;
+module.exports = WebpackConfig;

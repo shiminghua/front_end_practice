@@ -30,7 +30,7 @@ function getPaths (pattern, o, n, t) {
         files.dir.push(arrPaths[rt]);
 
     });
-    console.log(files);
+    // console.log(files);
     return files;
 
 }

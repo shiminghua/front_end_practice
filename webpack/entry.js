@@ -12,7 +12,10 @@ let hotMiddlewareScript = 'webpack-hot-middleware/client?quiet=true&reload=true&
 // environment
 
 pathsJS.dist.forEach(function(path, i) {
-    // console.log(path,i);  
+    
+    entry[pathsJS.dir[i]] = [path];
+
+    /*
     switch(process.env.NODE_ENV) {
         // 静态调试，react 插件热加载
         case 'development':
@@ -20,12 +23,11 @@ pathsJS.dist.forEach(function(path, i) {
             // 'webpack/hot/dev-server',
             // 'webpack-dev-server/client?http://127.0.0.1:8080/', // WebpackDevServer host and port
             // './app/index/index.js' // Your appʼs entry point
-            // entry[pathsJS.dir[i]] = [
-            //     'webpack-dev-server/client?' + Configure.http,
-            //     'webpack/hot/only-dev-server',
-            //     path
-            //     ];
-            entry[pathsJS.dir[i]] = [path];
+            entry[pathsJS.dir[i]] = [
+                'webpack-dev-server/client?' + Configure.http,
+                'webpack/hot/only-dev-server',
+                path
+                ];
             break;
         case 'server':
             entry[pathsJS.dir[i]] = [path];
@@ -39,9 +41,10 @@ pathsJS.dist.forEach(function(path, i) {
             break;
 
     }
+    */
 
 });
 
-console.log('-------------entry:', entry, process.env.NODE_ENV);
+// console.log('-------------entry:', entry, process.env.NODE_ENV);
 
 module.exports = entry;
