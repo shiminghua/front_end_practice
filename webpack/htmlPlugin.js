@@ -4,7 +4,7 @@ let Alias = require('./alias');
 let Configure = require('./configure');
 let FilesPath = require('./filesPath');
 let HtmlWebpackPlugin = require('html-webpack-plugin');
-// let ChunkPlugins = require('./chunkPlugin');
+
 
 let htmlPlugin = [];
 let pathsHtml = FilesPath.getPaths(Configure.html, 'app/', 'build/');
