@@ -1,18 +1,10 @@
-# babel-loader
+# react-hot-loader 
 
-    npm install babel-loader babel-core babel-preset-es2015 babel-preset-react babel-preset-stage-0 --save-dev
+# installaction 
+
+    npm install --save-dev react-hot-loader
 
 # examples
-
-    {
-        test: /\.jsx?$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'babel',
-        query: {
-            presets: ['react', 'es2015', 'stage-0']
-        }
-    }
-
 
     {
         test: /\.js$/,

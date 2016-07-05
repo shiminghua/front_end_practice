@@ -19,7 +19,7 @@ let pluginsArr = [
     new webpack.optimize.CommonsChunkPlugin({
         // minChunks: 2,
         // chunks: ['vendors'],
-        name: 'commons',
+        name: Configure.commonChunk,
         filename: 'javascript/commons/react.min.js'
     }),
     // 优化计数模块
@@ -60,7 +60,7 @@ let WebpackConfig = {
             // js 加载器
             {
                 test: /\.js$/,
-                exclude: /node_modules/,
+                exclude: /node_modules/,  // 必须，否则报错：Uncaught ReferenceError: webpackJsonp is not defined
                 // include: /resources/,
                 // loader: 'react-hot!babel?presets[]=react,presets[]=es2015,presets[]=stage-0'
                 loaders: [

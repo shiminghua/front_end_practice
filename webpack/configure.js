@@ -10,6 +10,7 @@ const configure = {
     port: 8080,
     node_host: 'localhost',
     node_port: 9090,
+    commonChunk: ['common'],
     root: path.join(__dirname, '../'),
     build: path.join(__dirname, '../build/'),
     dist: path.join(__dirname, '../dist/'),
