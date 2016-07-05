@@ -45,6 +45,15 @@ pathsJS.dist.forEach(function(path, i) {
 
 });
 
+// 提取React,jQuery等库文件
+// entry.react = ['react', 'react-dom'];
+// entry.jquery = ['jquery'];
+let ConfigureCommonChunks =  Configure.commonChunk;
+
+for(let key in ConfigureCommonChunks) {
+    entry[key] = ConfigureCommonChunks[key];
+}
+
 // console.log('-------------entry:', entry, process.env.NODE_ENV);
 
 module.exports = entry;

@@ -13,3 +13,10 @@
     npm run build   生成未压缩的文件
     npm run dist    生成压缩文件
     npm run distdev 开启静态服务，热加载，压缩文件
+
+
+# 参考资料
+
+    React引领未来的用户界面开发框架
+    React导学
+    React精髓

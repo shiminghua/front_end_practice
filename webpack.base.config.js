@@ -8,6 +8,14 @@ let Entry = require('./webpack/entry');
 
 let NODE_ENV = process.env.NODE_ENV === 'production' ? 'production' : 'development';
 console.log(NODE_ENV);
+
+let ConfigureCommonChunks =  Configure.commonChunk;
+let commonChunkNames = [];
+
+for(let key in ConfigureCommonChunks) {
+    commonChunkNames.push(key);
+}
+console.log(commonChunkNames);
 let pluginsArr = [
     // 设置开发模式
     new webpack.DefinePlugin({
@@ -17,10 +25,10 @@ let pluginsArr = [
     }),
     // 公共模块
     new webpack.optimize.CommonsChunkPlugin({
-        // minChunks: 2,
-        // chunks: ['vendors'],
-        name: Configure.commonChunk,
-        filename: 'javascript/commons/react.min.js'
+        minChunks: Infinity, // 2 Infinity
+        // chunks: commonChunkNames,
+        name: commonChunkNames,
+        filename: 'javascript/commons/[name].min.js'
     }),
     // 优化计数模块
     new webpack.optimize.OccurrenceOrderPlugin(),
@@ -60,7 +68,7 @@ let WebpackConfig = {
             // js 加载器
             {
                 test: /\.js$/,
-                exclude: /node_modules/,  // 必须，否则报错：Uncaught ReferenceError: webpackJsonp is not defined
+                exclude: /(node_modules|jquery)/,  // 必须，否则报错：Uncaught ReferenceError: webpackJsonp is not defined
                 // include: /resources/,
                 // loader: 'react-hot!babel?presets[]=react,presets[]=es2015,presets[]=stage-0'
                 loaders: [
