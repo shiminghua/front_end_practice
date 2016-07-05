@@ -19,7 +19,7 @@ let pluginsArr = [
     new webpack.optimize.CommonsChunkPlugin({
         // minChunks: 2,
         // chunks: ['vendors'],
-        name: 'commonsreact',
+        name: 'commons',
         filename: 'javascript/commons/react.min.js'
     }),
     // 优化计数模块
