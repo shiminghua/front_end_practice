@@ -11,8 +11,8 @@ const configure = {
     node_host: 'localhost',
     node_port: 9090,
     commonChunk: {
-        react: ['react', 'react-dom']
-        // jquery: ['jquery']
+        react: ['react', 'react-dom'],
+        jquery: ['jquery']
     },
     root: path.join(__dirname, '../'),
     build: path.join(__dirname, '../build/'),

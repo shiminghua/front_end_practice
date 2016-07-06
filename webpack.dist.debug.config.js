@@ -1,6 +1,6 @@
 'use strict';
 
-process.env.NODE_ENV = 'production';
+// process.env.NODE_ENV = 'production';
 
 let Webpack = require('webpack');
 let Path = require('path');
@@ -8,7 +8,7 @@ let PackageConfig = require('./package.json');
 let Configure = require('./webpack/configure');
 let WebpackBaseConfig = require('./webpack.base.config');
 
-let WebpackDistConfig = WebpackBaseConfig;
+let WebpackDistDebugConfig = WebpackBaseConfig;
 let webpackBasePlugins = WebpackBaseConfig.plugins;
 let webpackEntrys = WebpackBaseConfig.entry;
 
@@ -31,10 +31,26 @@ let pluginsArr = [
         })
     ];
 
-WebpackDistConfig.plugins = webpackBasePlugins.concat(pluginsArr);
-WebpackDistConfig.entry = webpackEntrys;
+WebpackDistDebugConfig.plugins = webpackBasePlugins.concat(pluginsArr);
+WebpackDistDebugConfig.entry = webpackEntrys;
 
-// console.log('----------------------WebpackDistConfig:\n\r', WebpackDistConfig, '\n\r', process.env.NODE_ENV, '\n\r');
+// webpack-dev-server 配置
+WebpackDistDebugConfig.devServer = {
+    hot: true,
+    host: Configure.host,
+    port: Configure.port,
+    inline: true,
+    progress: true,
+    contentBase: Configure.build,
+    outputPath: Configure.build,
+    publicPath: WebpackDistDebugConfig.output.publicPath,
+    stats: {
+        color: true
+    },
+    historyApiFallback: true
+};
 
-module.exports = WebpackDistConfig;
+console.log('--------------------WebpackDistDebugConfig:\n\r', WebpackDistDebugConfig, '\n\r', process.env.NODE_ENV, '\n\r');
+
+module.exports = WebpackDistDebugConfig;
 

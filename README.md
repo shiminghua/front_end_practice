@@ -9,10 +9,12 @@
 # 运行
 
     npm start              同 npm run start；和 npm run dev 功能相同
-    npm run dev            开启静态服务，热加载
+    npm run dev            开启静态服务，热加载，不能自动刷新样式文件
+    npm run dev2           开启静态服务，热加载，能自动刷新样式文件，页面刷新
     npm run build          生成未压缩的文件
     npm run dist           生成压缩文件
-    npm run dist.debug     开启静态服务，热加载，压缩文件
+    npm run dist.debug     开启静态服务，热加载，压缩文件，不能自动刷新样式文件
+    npm run dist.debug2    开启静态服务，热加载，压缩文件，能自动刷新样式文件，页面刷新
 
 
 # 参考资料

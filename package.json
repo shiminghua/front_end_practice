@@ -22,15 +22,17 @@
   "private": false,
   "main": "app.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js",
-    "dist.debug": "node server.dist.js",
+    "start": "cross-env NODE_ENV=development node server.js",
+    "dev": "cross-env NODE_ENV=development node server.js",
+    "dev2": "cross-env NODE_ENV=development webpack-dev-server --devtool eval --inline --config webpack.dev.config.js",
+    "dist.debug": "cross-env NODE_ENV=production node server.dist.js",
+    "dist.debug2": "cross-env NODE_ENV=production webpack-dev-server --devtool eval --inline --config webpack.dist.debug.config.js",
     "build": "webpack --display-error-details --progress --config webpack.build.config.js",
     "dist": "webpack --display-error-details --progress --config webpack.dist.config.js",
-    "dev2": "webpack-dev-server --devtool eval --inline --progress --hot --config webpack.config.dev.js",
     "server": ""
   },
   "dependencies": {
+    "cross-env": "^1.0.8",
     "ejs": "^2.4.2",
     "jquery": "^3.0.0",
     "react": "^15.1.0",

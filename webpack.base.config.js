@@ -6,8 +6,9 @@ let Configure = require('./webpack/configure');
 let HtmlPlugin = require('./webpack/htmlPlugin');
 let Entry = require('./webpack/entry');
 
-let NODE_ENV = process.env.NODE_ENV === 'production' ? 'production' : 'development';
-console.log(NODE_ENV);
+let definePlugin_NODE_ENV = process.env.NODE_ENV === 'production' ? 'production' : 'development';
+console.log('----------------process.env.NODE_ENV:\n\r', process.env.NODE_ENV, '\n\r');
+console.log('----------------definePlugin_NODE_ENV:\n\r', definePlugin_NODE_ENV, '\n\r');
 
 let ConfigureCommonChunks =  Configure.commonChunk;
 let commonChunkNames = [];
@@ -16,11 +17,13 @@ for(let key in ConfigureCommonChunks) {
     commonChunkNames.push(key);
 }
 
+console.log('----------------commonChunkNames:\n\r', commonChunkNames, '\n\r');
+
 let pluginsArr = [
     // 设置开发模式
     new webpack.DefinePlugin({
         "process.env": {
-            NODE_ENV: JSON.stringify(NODE_ENV)
+            NODE_ENV: JSON.stringify(definePlugin_NODE_ENV)
         }
     }),
     // 公共模块

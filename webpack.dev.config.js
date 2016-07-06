@@ -1,6 +1,6 @@
 'use strict';
 
-process.env.NODE_ENV = 'development';
+// process.env.NODE_ENV = 'development';
 
 let Webpack = require('webpack');
 let Path = require('path');
@@ -26,17 +26,22 @@ let WebpackDevConfig = WebpackBaseConfig;
 WebpackDevConfig.plugins = pluginsArr.concat(webpackBasePlugins);
 WebpackDevConfig.entry = webpackEntrys;
 
-// WebpackDevConfig.devServer = {
-//     hot: true,
-//     port: Configure.port,
-//     inline: true,
-//     progress: true,
-//     contentBase: Configure.build,
-//     outputPath: Configure.build,
-//     stats: {color: true},
-//     historyApiFallback: true
-// };
+// webpack-dev-server 配置
+WebpackDevConfig.devServer = {
+    hot: true,
+    host: Configure.host,
+    port: Configure.port,
+    inline: true,
+    progress: true,
+    contentBase: Configure.build,
+    outputPath: Configure.build,
+    publicPath: WebpackDevConfig.output.publicPath,
+    stats: {
+        color: true
+    },
+    historyApiFallback: true
+};
 
-// console.log('---------------WebpackDevConfig:\n\r', WebpackDevConfig, '\n\r', process.env.NODE_ENV, '\n\r');
+console.log('---------------WebpackDevConfig:\n\r', WebpackDevConfig, '\n\r', process.env.NODE_ENV, '\n\r');
 
 module.exports = WebpackDevConfig;

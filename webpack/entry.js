@@ -54,6 +54,6 @@ for(let key in ConfigureCommonChunks) {
     entry[key] = ConfigureCommonChunks[key];
 }
 
-// console.log('-------------entry:', entry, process.env.NODE_ENV);
+console.log('-------------entry:\n\r', entry, '\n\r', process.env.NODE_ENV, '\n\r');
 
 module.exports = entry;

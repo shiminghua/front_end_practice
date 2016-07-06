@@ -1,4 +1,5 @@
-# Windows中删除路径太长目录及文件
+
+# 解决Windows中无法删除路径太长目录及文件
 
     在cmd命令行窗口中输入
 	robocopy empty_dir will_delete_dir /purge
