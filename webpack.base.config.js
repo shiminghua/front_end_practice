@@ -15,7 +15,7 @@ let commonChunkNames = [];
 for(let key in ConfigureCommonChunks) {
     commonChunkNames.push(key);
 }
-console.log(commonChunkNames);
+
 let pluginsArr = [
     // 设置开发模式
     new webpack.DefinePlugin({

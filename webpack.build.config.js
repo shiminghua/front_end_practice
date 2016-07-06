@@ -10,6 +10,6 @@ let WebpackBaseConfig = require('./webpack.base.config');
 
 let WebpackBuildConfig = WebpackBaseConfig;
 
-console.log('----------------------webpackBuildConfig:\n\r', WebpackBuildConfig, '\n\r', process.env.NODE_ENV, '\n\r');
+// console.log('----------------------webpackBuildConfig:\n\r', WebpackBuildConfig, '\n\r', process.env.NODE_ENV, '\n\r');
 
 module.exports = WebpackBuildConfig;

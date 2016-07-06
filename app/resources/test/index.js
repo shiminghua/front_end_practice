@@ -2,8 +2,8 @@
 
 let React = require('react');
 let ReactDom = require('react-dom');
-let $ = require('jquery');
-require('./less/index.less');
+// let $ = require('jquery');
+// require('./less/index.less');
 // let Hello = require('./hello/hello');
 // let CommentBox = require('./comment/comment-box');
 // let ProductSelect = require('./comment/product-select');

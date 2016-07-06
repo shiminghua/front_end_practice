@@ -5,7 +5,9 @@ let TodoConstants = require('../constants/TodoConstants');
 let TodoActions = {
 
     create: function(text) {
+
         let action = {
+            // type: TodoConstants.TODO_CREATE,
             actionType: TodoConstants.TODO_CREATE,
             text: text
         };

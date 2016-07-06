@@ -1,8 +1,9 @@
 'use strict';
 let React = require('react');
-let ReactPropTypes = React.PropTypes;
 let TodoActions = require('../actions/TodoActions');
 let TodoItem = require('./TodoItem.react');
+
+let ReactPropTypes = React.PropTypes;
 
 let MainSection = React.createClass({
 
@@ -20,7 +21,13 @@ let MainSection = React.createClass({
         let allTodos = this.props.allTodos;
         let todos = [];
 
+        let A = {
+            key1: 'value1',
+            key2: 'value2'
+        }
+
         for (let key in allTodos) {
+            // allTodos[key]
             todos.push(<TodoItem key={key} todo={allTodos[key]} />);
         }
 

@@ -24,7 +24,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
-    "distdev": "node server.dist.js",
+    "dist.debug": "node server.dist.js",
     "build": "webpack --display-error-details --progress --config webpack.build.config.js",
     "dist": "webpack --display-error-details --progress --config webpack.dist.config.js",
     "dev2": "webpack-dev-server --devtool eval --inline --progress --hot --config webpack.config.dev.js",

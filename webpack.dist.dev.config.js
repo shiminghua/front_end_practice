@@ -34,7 +34,7 @@ let pluginsArr = [
 WebpackDistConfig.plugins = webpackBasePlugins.concat(pluginsArr);
 WebpackDistConfig.entry = webpackEntrys;
 
-console.log('----------------------WebpackDistConfig:\n\r', WebpackDistConfig, '\n\r', process.env.NODE_ENV, '\n\r');
+// console.log('----------------------WebpackDistConfig:\n\r', WebpackDistConfig, '\n\r', process.env.NODE_ENV, '\n\r');
 
 module.exports = WebpackDistConfig;
 

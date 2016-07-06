@@ -23,23 +23,26 @@ let TodoItem = React.createClass({
         let todo = this.props.todo;
         let input;
 
-        if(this.state.isEditing) {
-            input = (
-                <TodoTextInput className='edit' 
-                    onSave={this._onSave} 
-                    value={todo.text} />
-            );
-        }
-
+        // if(this.state.isEditing) {
+        //     input = (
+        //         <TodoTextInput className='edit' 
+        //             onSave={this._onSave} 
+        //             value={todo.text} />
+        //     );
+        // }
+        // console.log('-----------', todo.id);
         return (
-            <li className="aaa" 
-                key={todo.id}>
+            <li className="aaa" key={todo.id}>
                 <div className='view'>
                     <input className="toggle" type="checkbox" checked={todo.complete} onChange={this._onToggleComplete} />
                     <label onDoubleClick={this._onDoubleClick}>{todo.text}</label>
                     <button className="destroy" onClick={this._onDestroyClick}>delete</button>
                 </div>
-                {input}
+                {
+                    /***
+                     {input}
+                    */
+                }
             </li>
         );
 

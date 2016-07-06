@@ -52,7 +52,7 @@ pathsHtml.dist.forEach(function(path, i) {
     );
 
 });
-console.log(htmlPlugin[0].options.chunks);
+// console.log(htmlPlugin[0].options.chunks);
 module.exports = htmlPlugin;
 
 /***********************

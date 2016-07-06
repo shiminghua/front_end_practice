@@ -13,6 +13,10 @@ let TodoTextInput = React.createClass({
 
     handleInputValueChange: function(event) {
         let inputValue = event.target.value;
+
+        // this.setState();
+        // this.state.inputValue = '11';
+
         this.setState({
             inputValue: inputValue
         });
@@ -27,7 +31,7 @@ let TodoTextInput = React.createClass({
 
         return (
             <form>
-                <input type="text" value={this.state.inputValue} onChange={this.handleInputValueChange} />
+                <input type="text" placeholder={this.props.placeholder} value={this.state.inputValue} onChange={this.handleInputValueChange} />
                 <input type="submit" value="提交" onClick={this.handleFormSubmit} />
             </form>
         );
