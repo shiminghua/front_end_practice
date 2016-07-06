@@ -33,10 +33,10 @@ let pluginsArr = [
         name: commonChunkNames,
         filename: 'javascript/commons/[name].min.js'
     }),
-    // 优化计数模块
-    new webpack.optimize.OccurrenceOrderPlugin(),
-    // 报错不退出
-    new webpack.NoErrorsPlugin()
+    // // 优化计数模块
+    // new webpack.optimize.OccurrenceOrderPlugin(),
+    // // 报错不退出
+    // new webpack.NoErrorsPlugin()
 ];
 
 let WebpackConfig = {

@@ -27,8 +27,8 @@
     "dev2": "cross-env NODE_ENV=development webpack-dev-server --devtool eval --inline --config webpack.dev.config.js",
     "dist.debug": "cross-env NODE_ENV=production node server.dist.js",
     "dist.debug2": "cross-env NODE_ENV=production webpack-dev-server --devtool eval --inline --config webpack.dist.debug.config.js",
-    "build": "webpack --display-error-details --progress --config webpack.build.config.js",
-    "dist": "webpack --display-error-details --progress --config webpack.dist.config.js",
+    "build": "cross-env NODE_ENV=development webpack --display-error-details --progress --config webpack.build.config.js",
+    "dist": "cross-env NODE_ENV=production webpack --display-error-details --progress --config webpack.dist.config.js",
     "server": ""
   },
   "dependencies": {
