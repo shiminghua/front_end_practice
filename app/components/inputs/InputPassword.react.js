@@ -1,7 +1,7 @@
 'use strict';
-import React from 'react';
+import React, { Component } from 'react';
 
-class InputText extends React.Component {
+class InputPassword extends Component {
 
     constructor(props) {
         super(props);
@@ -32,7 +32,7 @@ class InputText extends React.Component {
         let value = this.state.value;
 
         return (
-            <input type='text' 
+            <input type='password' 
                 className={this.props.className} 
                 name={this.props.name} 
                 value={value} 
@@ -43,11 +43,11 @@ class InputText extends React.Component {
 
 }
 
-InputText.defaultProps = {
+InputPassword.defaultProps = {
     defaultValue: ''
 };
-InputText.propTypes = {
+InputPassword.propTypes = {
     onChange: React.PropTypes.func
 };
 
-export default InputText;
+export default InputPassword;

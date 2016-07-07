@@ -1,7 +1,7 @@
 'use strict';
-import React from 'react';
+import React, { Component } from 'react';
 
-class InputText extends React.Component {
+class Select extends Component {
 
     constructor(props) {
         super(props);
@@ -14,8 +14,9 @@ class InputText extends React.Component {
         if(this.props.onChange) {
             this.props.onChange(event);
         }
+        console.log(event.target.value);
         this.setState({
-            value: event.target.value.trim()
+            value: event.target.value
         });
     }
 
@@ -32,22 +33,24 @@ class InputText extends React.Component {
         let value = this.state.value;
 
         return (
-            <input type='text' 
+            <select 
                 className={this.props.className} 
-                name={this.props.name} 
                 value={value} 
-                placeholder={this.props.placeholder} 
-                onChange={this.handleChange.bind(this)} />
+                name={this.props.name} 
+                onChange={this.handleChange.bind(this)}>
+                {this.props.children}
+            </select>
         );
+
     }
 
 }
 
-InputText.defaultProps = {
-    defaultValue: ''
-};
-InputText.propTypes = {
+Select.propTypes = {
     onChange: React.PropTypes.func
 };
+Select.defaultProps = {
+    defaultValue: ''
+};
 
-export default InputText;
+export default Select;

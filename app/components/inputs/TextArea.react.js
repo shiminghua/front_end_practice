@@ -1,7 +1,7 @@
 'use strict';
-import React from 'react';
+import React, { Component } from 'react';
 
-class InputText extends React.Component {
+class TextArea extends Component {
 
     constructor(props) {
         super(props);
@@ -15,7 +15,7 @@ class InputText extends React.Component {
             this.props.onChange(event);
         }
         this.setState({
-            value: event.target.value.trim()
+            value: event.target.value
         });
     }
 
@@ -32,22 +32,23 @@ class InputText extends React.Component {
         let value = this.state.value;
 
         return (
-            <input type='text' 
+            <textarea 
                 className={this.props.className} 
-                name={this.props.name} 
                 value={value} 
                 placeholder={this.props.placeholder} 
-                onChange={this.handleChange.bind(this)} />
+                name={this.props.name} 
+                onChange={this.handleChange.bind(this)}></textarea>
         );
+
     }
 
 }
 
-InputText.defaultProps = {
-    defaultValue: ''
-};
-InputText.propTypes = {
+TextArea.propTypes = {
     onChange: React.PropTypes.func
 };
+TextArea.defaultProps = {
+    defaultValue: ''
+}
 
-export default InputText;
+export default TextArea;
