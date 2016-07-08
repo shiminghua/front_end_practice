@@ -88,7 +88,7 @@ let WebpackConfig = {
             // js 加载器
             {
                 test: /\.js$/,
-                exclude: /(node_modules|jquery)/,  // 必须，否则报错：Uncaught ReferenceError: webpackJsonp is not defined
+                exclude: /(node_modules|jquery|mui)/,  // 必须，否则报错：Uncaught ReferenceError: webpackJsonp is not defined
                 // include: /resources/,
                 // loader: 'react-hot!babel?presets[]=react,presets[]=es2015,presets[]=stage-0'
                 loaders: [

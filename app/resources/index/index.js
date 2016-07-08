@@ -1,8 +1,8 @@
 'use strict';
 
-require('../../browser/javascript/mui');
-require('../../browser/javascript/mui/mui.lazyload');
-require('../../browser/javascript/mui/mui.lazyload.img');
+// require('../../browser/javascript/mui');
+// require('../../browser/javascript/mui/mui.lazyload');
+// require('../../browser/javascript/mui/mui.lazyload.img');
 /*require('../../browser/javascript/mui/mui');
  require('../../browser/javascript/mui/mui.init');
  require('../../browser/javascript/mui/mui.class');
@@ -23,84 +23,62 @@ require('../../browser/javascript/mui/mui.lazyload.img');
 /*require('../../browser/javascript/mui/sliders');
  require('../../browser/javascript/mui/mui.class.scroll.slider');*/
 
-import React, {Component} from 'React';
+// import '../../browser/javascript/mui';
+// import '../../browser/javascript/mui/mui.lazyload';
+// import '../../browser/javascript/mui/mui.lazyload.img';
+
+
+import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
 
 /* Public Components */
-import More from '../../components/More/More.react';
-import Fixed from '../../components/Fixed/Fixed.react';
-import Footer from '../../components/Footer/Footer.react';
-import OffCanvas from '../../components/OffCanvas/OffCanvas.react';
-import OffCanvasContent from '../../components/OffCanvas/OffCanvasContent.react';
-import OffCanvasBackDrop from '../../components/OffCanvas/OffCanvasBackDrop.react';
+import LayoutAll from '../../components/layout/LayoutAll.react';
 /* Page Components */
-import AppTab from './AppTab.react';
-import AppHeader from './AppHeader.react';
-import AppSlider from './AppSlider.react';
-import AppArtist from './AppArtist.react';
-import AppTeacher from './AppTeacher.react';
-import AppEveryOpus from './AppEveryOpus.react';
-import AppFriendUpdate from './AppFriendUpdate.react';
+import IndexSlider from './views/IndexSlider.react';
+import IndexTab from './views/IndexTab.react';
 
+class Index extends Component {
 
-let App = React.createClass({
-    // 初始化
-    getInitialState: function () {
-        return {
-            // 好友更新列表pageNo
-            friendIndex: 0
-        }
-    },
-    componentDidMount: function () {
-        $.init({
-            swipeBack: true //启用右滑关闭功能
-        });
-        window.lazyLoadApi = $(document).imageLazyload({
-            placeholder: require('../../browser/images/loading.png'),
-            autoDestroy: false,
-            diff: 0
-        });
-    },
-    setFriendState: function (n) {
-        this.setState({
-            friendIndex: n
-        });
-    },
-    render: function () {
-        return (
-            <OffCanvas>
-                {/* 页面顶部 */}
-                <AppHeader />
-                {/* 返回顶部 */}
-                <Fixed />
-                <OffCanvasContent>
-                    {/* 轮播图 */}
-                    <AppSlider />
-                    {/* 分类切换 */}
-                    <AppTab />
-                    {/* 每日作品推荐 */}
-                    <AppEveryOpus />
-                    {/* 艺术家推荐榜 */}
-                    <AppArtist />
-                    {/* 名师点评推荐 */}
-                    <AppTeacher />
-                    {/* 好友更新 */}
-                    <AppFriendUpdate
-                        friendParent={ this.setFriendState }
-                    />
-                    {/* 加载更多 */}
-                    <More
-                        type="addFriends"
-                        pageno={ this.state.friendIndex }
-                    />
-                    {/* 页面底部信息 */}
-                    <Footer />
-                </OffCanvasContent>
-                <OffCanvasBackDrop />
-            </OffCanvas>
-        )
+    constructor(props) {
+        super(props);
+        this.state = {};
     }
-});
 
-ReactDOM.render(< App />, document.getElementById('offCanvas'));
+    componentDidMount() {
+        // $.init({
+        //     swipeBack: true //启用右滑关闭功能
+        // });
+        // window.lazyLoadApi = $(document).imageLazyload({
+        //     placeholder: require('../../browser/images/loading.png'),
+        //     autoDestroy: false,
+        //     diff: 0
+        // });
+    }
+
+    componentWillUnmount() {
+
+
+
+    }
+
+    render() {
+
+        return (
+            <LayoutAll>
+                {/* 图片轮播 */}
+                <IndexSlider />
+                {/* 按钮 - 书法、绘画、摄影 */}
+                <IndexTab />
+                {/* 每日作品推荐 */}
+            </LayoutAll>
+        );
+
+    }
+
+}
+
+Index.defaultProps = {};
+
+ReactDOM.render(<Index />, document.getElementById('offCanvas'));
 
 

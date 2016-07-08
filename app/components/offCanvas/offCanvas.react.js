@@ -26,6 +26,9 @@ module.exports = React.createClass({
     componentDidMount: function () {
         $('.mui-scroll-wrapper').scroll();
     },
+    componentWillUnmount: function() {
+
+    },
     closeOffCanvas: function(){
         $('#offCanvasWrapper').offCanvas('close');
     },

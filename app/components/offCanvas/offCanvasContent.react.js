@@ -1,6 +1,6 @@
 'use strict';
 
-import React, {Component} from 'React';
+import React, {Component} from 'react';
 
 module.exports = React.createClass({
     render: function () {
