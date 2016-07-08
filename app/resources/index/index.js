@@ -36,6 +36,10 @@ import LayoutAll from '../../components/layout/LayoutAll.react';
 /* Page Components */
 import IndexSlider from './views/IndexSlider.react';
 import IndexTab from './views/IndexTab.react';
+import IndexEveryOpus from './views/IndexEveryOpus.react';
+import IndexArtist from './views/IndexArtist.react';
+import IndexTeacher from './views/IndexTeacher.react';
+import IndexFriendUpdate from './views/IndexFriendUpdate.react';
 
 class Index extends Component {
 
@@ -70,6 +74,13 @@ class Index extends Component {
                 {/* 按钮 - 书法、绘画、摄影 */}
                 <IndexTab />
                 {/* 每日作品推荐 */}
+                <IndexEveryOpus />
+                {/* 艺术家推荐榜 */}
+                <IndexArtist />
+                {/* 名师点评推荐 */}
+                <IndexTeacher />
+                {/* 好友更新 */}
+                <IndexFriendUpdate />
             </LayoutAll>
         );
 

@@ -31,8 +31,8 @@ import Wrap from './Wrap.react';
 import Aside from './Aside.react';
 import Main from './Main.react';
 import Content from './Content.react';
-import Header from '../Header/Header.react';
-import BackTop from '../Fixed/BackTop.react';
+import Header from '../header/Header.react';
+import BackTop from '../btns/BackTop.react';
 import Footer from '../footer/Footer.react';
 
 
@@ -44,9 +44,10 @@ class LayoutAll extends Component {
     }
 
     componentDidMount() {
-        // $.init({
-        //     swipeBack: true //启用右滑关闭功能
-        // });
+        $('.mui-scroll-wrapper').scroll();
+        $.init({
+            swipeBack: true //启用右滑关闭功能
+        });
         window.lazyLoadApi = $(document).imageLazyload({
             placeholder: require('../../browser/images/loading.png'),
             autoDestroy: false,

@@ -137,8 +137,8 @@ let WebpackConfig = {
                 exclude: /node_modules/,
                 // loader: 'url?limit=4096&name=images/[path]/[name].[ext]&context=' + Configure.client
                 loaders: process.env.NODE_ENV === 'development' ? 
-                    ['url?limit=4096&name=images/[path][name].[ext]&context=' + Path.join(Configure.client, 'resources/')] : 
-                    ['url?limit=4096&name=images/[path][name].[ext]&context=' + Path.join(Configure.client, 'resources/'), 
+                    ['url?limit=4096&name=images/[path][name].[ext]&context=' + Configure.client] : 
+                    ['url?limit=4096&name=images/[path][name].[ext]&context=' + Configure.client, 
                     'image-webpack?{progressive:true, optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}}']
             }
         ]
