@@ -1,8 +1,8 @@
 'use strict';
-
-// require('../../browser/javascript/mui');
-// require('../../browser/javascript/mui/mui.lazyload');
-// require('../../browser/javascript/mui/mui.lazyload.img');
+/* mui */
+import '../../browser/javascript/mui';
+import '../../browser/javascript/mui/mui.lazyload';
+import '../../browser/javascript/mui/mui.lazyload.img';
 /*require('../../browser/javascript/mui/mui');
  require('../../browser/javascript/mui/mui.init');
  require('../../browser/javascript/mui/mui.class');
@@ -23,11 +23,6 @@
 /*require('../../browser/javascript/mui/sliders');
  require('../../browser/javascript/mui/mui.class.scroll.slider');*/
 
-// import '../../browser/javascript/mui';
-// import '../../browser/javascript/mui/mui.lazyload';
-// import '../../browser/javascript/mui/mui.lazyload.img';
-
-
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
@@ -41,7 +36,7 @@ import IndexArtist from './views/IndexArtist.react';
 import IndexTeacher from './views/IndexTeacher.react';
 import IndexFriendUpdate from './views/IndexFriendUpdate.react';
 
-class Index extends Component {
+class Index extends React.Component {
 
     constructor(props) {
         super(props);
@@ -49,9 +44,10 @@ class Index extends Component {
     }
 
     componentDidMount() {
-        // $.init({
-        //     swipeBack: true //启用右滑关闭功能
-        // });
+        $.init({
+            swipeBack: true //启用右滑关闭功能
+        });
+        $('.mui-scroll-wrapper').scroll();
         // window.lazyLoadApi = $(document).imageLazyload({
         //     placeholder: require('../../browser/images/loading.png'),
         //     autoDestroy: false,
@@ -80,7 +76,7 @@ class Index extends Component {
                 {/* 名师点评推荐 */}
                 <IndexTeacher />
                 {/* 好友更新 */}
-                <IndexFriendUpdate />
+                { this.props.isLogin === 1 ? <IndexFriendUpdate /> : '' }
             </LayoutAll>
         );
 
@@ -88,7 +84,11 @@ class Index extends Component {
 
 }
 
-Index.defaultProps = {};
+Index.defaultProps = {
+    isLogin: window.NODE_VALUE.isLogin
+};
+
+// console.log(window.NODE_VALUE.isLogin)
 
 ReactDOM.render(<Index />, document.getElementById('offCanvas'));
 

@@ -4835,7 +4835,7 @@ body > .mui-progressbar
     font-weight: normal;
     font-style: normal;
 
-    src: url(http://127.0.0.1:8080/style/fonts/mui.bundle.ttf) format('truetype');
+    src: url(http://static.love10.net:8080/style/fonts/mui.bundle.ttf) format('truetype');
 }
 .mui-icon
 {

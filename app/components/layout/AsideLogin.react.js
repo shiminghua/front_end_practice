@@ -55,7 +55,7 @@ class AsideLogin extends Component {
                     <li className="mui-table-view-cell"><a className="mui-navigate-right" href='#'>设置</a></li>
                 </ul>
                 <p className="page-slide-out">
-                    <button type="button" class="mui-btn mui-btn-danger mui-btn-block">退出</button>
+                    <button type="button" className="mui-btn mui-btn-danger mui-btn-block">退出</button>
                 </p>
             </div>
         );

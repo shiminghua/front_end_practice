@@ -1,0 +1,8 @@
+'use strict';
+
+export default {
+    SLIDER_INIT: 'SLIDER_INIT',
+    EVERYOPUS_INIT: 'EVERYOPUS_INIT',
+    ARTIST_INIT: 'ARTIST_INIT',
+    TEACHER_INIT: 'TEACHER_INIT'
+};

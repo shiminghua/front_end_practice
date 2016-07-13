@@ -15,6 +15,10 @@ class Main extends Component {
         this.state = {};
     }
 
+    componentDidMount() {
+        // $('.mui-scroll-wrapper').scroll();
+    }
+
     render() {
         // 主界面
         return (

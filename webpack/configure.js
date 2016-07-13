@@ -6,7 +6,7 @@ let path = require('path');
 */
 const configure = {
     environment: 'production',
-    host: '127.0.0.1',
+    host: 'static.love10.net',
     port: 8080,
     node_host: 'localhost',
     node_port: 9090,

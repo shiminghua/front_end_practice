@@ -20,7 +20,7 @@ class Aside extends Component {
             asideChildren = <AsideLogin 
                 isLogin={this.props.isLogin} 
                 isNewMsg={this.props.isNewMsg} 
-                users={this.props.users} />;
+                user={this.props.user} />;
         }
         else {
             asideChildren = <AsideLogout />;
@@ -39,9 +39,9 @@ class Aside extends Component {
 }
 
 Aside.defaultProps = {
-    isLogin: false,
-    isNewMsg: false,
-    users: null
+    isLogin: (window.NODE_VALUE && window.NODE_VALUE.isLogin) ? window.NODE_VALUE.isLogin : false,
+    isNewMsg: (window.NODE_VALUE && window.NODE_VALUE.isNewMsg) ? window.NODE_VALUE.isNewMsg : false,
+    user: (window.NODE_VALUE && window.NODE_VALUE.user) ? window.NODE_VALUE.user : null
 };
 
 export default Aside;
