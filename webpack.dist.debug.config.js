@@ -50,7 +50,7 @@ WebpackDistDebugConfig.devServer = {
     historyApiFallback: true
 };
 
-console.log('--------------------WebpackDistDebugConfig:\n\r', WebpackDistDebugConfig, '\n\r', process.env.NODE_ENV, '\n\r');
+console.log('----------------------WebpackDistDebugConfig:\n\r', WebpackDistDebugConfig, '\n\r-------------NODE_ENV:\n\r', process.env.NODE_ENV, '\n\r');
 
 module.exports = WebpackDistDebugConfig;
 

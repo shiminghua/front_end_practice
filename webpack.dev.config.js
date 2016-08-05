@@ -42,6 +42,6 @@ WebpackDevConfig.devServer = {
     historyApiFallback: true
 };
 
-console.log('---------------WebpackDevConfig:\n\r', WebpackDevConfig, '\n\r', process.env.NODE_ENV, '\n\r');
+console.log('----------------------WebpackDevConfig:\n\r', WebpackDevConfig, '\n\r-------------NODE_ENV:\n\r', process.env.NODE_ENV, '\n\r');
 
 module.exports = WebpackDevConfig;

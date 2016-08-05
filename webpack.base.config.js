@@ -9,7 +9,6 @@ let Entry = require('./webpack/entry'); // 配置入口文件
 // 定义插件 webpack.DefinePlugin 的开发模式的值 - process.env.NODE_ENV
 let definePlugin_NODE_ENV = process.env.NODE_ENV === 'production' ? 'production' : 'development';
 
-console.log('----------------process.env.NODE_ENV:\n\r', process.env.NODE_ENV, '\n\r');
 console.log('----------------definePlugin_NODE_ENV:\n\r', definePlugin_NODE_ENV, '\n\r');
 
 // 设置 webpack.optimize.CommonsChunkPlugin 公共模块抽取时的 name 值
@@ -69,7 +68,10 @@ let WebpackConfig = {
      * 模块
     */
     module: {
-
+        /*******
+         * 在 Webpack 中忽略对已知文件的解析
+        */
+        // noParse: [/node_modules/, /jquery/, /mui/, /vue/],
         /**********
          * 加载器设置
         */
@@ -163,6 +165,11 @@ let WebpackConfig = {
         //     ActionType : 'js/actions/ActionType.js',
         //     AppAction : 'js/actions/AppAction.js'
         // },
+        // 别名
+        alias: {
+            // react: 'react/dist/react.js'
+        },
+        // 扩展名 
         extensions: ['', '.js', '.css', '.html', '.less', '.jsx']
     },
     

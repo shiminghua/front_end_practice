@@ -24,22 +24,23 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development node server.js",
     "dev": "cross-env NODE_ENV=development node server.js",
-    "dev2": "cross-env NODE_ENV=development webpack-dev-server --devtool eval --inline --config webpack.dev.config.js",
+    "dev2": "cross-env NODE_ENV=development webpack-dev-server --devtool eval --inline --colors --display-modules --profile --config webpack.dev.config.js",
     "dist.debug": "cross-env NODE_ENV=production node server.dist.js",
     "dist.debug2": "cross-env NODE_ENV=production webpack-dev-server --devtool eval --inline --config webpack.dist.debug.config.js",
     "build": "rimraf ./build/javascript/* & rimraf ./build/images/* & rimraf ./build/style/* & rimraf ./build/views/* & cross-env NODE_ENV=development webpack --display-error-details --progress --config webpack.build.config.js",
     "dist": "rimraf ./build/javascript/* & rimraf ./build/images/* & rimraf ./build/style/* & rimraf ./build/views/* & cross-env NODE_ENV=production webpack --display-error-details --progress --config webpack.dist.config.js",
     "server": "",
-    "lint": "eslint app.jsx test" //其中app.jsx test需要替换成你项目需要检测的文件或文件夹
+    "lint": "eslint app.jsx test"
   },
   "dependencies": {
-    "koa": "^2.0.0",
     "ejs": "^2.4.2",
+    "flux": "^2.1.1",
+    "jquery": "^3.0.0",
+    "koa": "^2.0.0",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
     "redux": "^3.5.2",
-    "flux": "^2.1.1",
-    "jquery": "^3.0.0",
+    "vue": "^1.0.26",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1",
     "webpack-hot-middleware": "^2.12.0"

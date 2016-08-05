@@ -15,34 +15,6 @@ pathsJS.dist.forEach(function(path, i) {
     
     entry[pathsJS.dir[i]] = [path];
 
-    /*
-    switch(process.env.NODE_ENV) {
-        // 静态调试，react 插件热加载
-        case 'development':
-            // entry[pathsJS.dir[i]] = [webPackDevServer, hotMiddlewareScript, path];
-            // 'webpack/hot/dev-server',
-            // 'webpack-dev-server/client?http://127.0.0.1:8080/', // WebpackDevServer host and port
-            // './app/index/index.js' // Your appʼs entry point
-            entry[pathsJS.dir[i]] = [
-                'webpack-dev-server/client?' + Configure.http,
-                'webpack/hot/only-dev-server',
-                path
-                ];
-            break;
-        case 'server':
-            entry[pathsJS.dir[i]] = [path];
-            break;
-        case 'production':
-            entry[pathsJS.dir[i]] = [path];
-            break;
-        // 默认为 production
-        default :
-            entry[pathsJS.dir[i]] = [path];
-            break;
-
-    }
-    */
-
 });
 
 // 提取React,jQuery等库文件
@@ -54,6 +26,6 @@ for(let key in ConfigureCommonChunks) {
     entry[key] = ConfigureCommonChunks[key];
 }
 
-console.log('-------------entry:\n\r', entry, '\n\r', process.env.NODE_ENV, '\n\r');
+// console.log('-------------entry:\n\r', entry, '\n\r', process.env.NODE_ENV, '\n\r');
 
 module.exports = entry;

@@ -6,13 +6,14 @@ let path = require('path');
 */
 const configure = {
     environment: 'production',
-    host: 'static.love10.net',
+    // host: 'static.love10.net',
+    host: 'localhost',
     port: 8080,
     node_host: 'localhost',
     node_port: 9090,
     commonChunk: {
-        react: ['react', 'react-dom']
-        // jquery: ['jquery']
+        react: ['react', 'react-dom'],
+        // jquery: ['jquery'],
     },
     root: path.join(__dirname, '../'),
     build: path.join(__dirname, '../build/'),
