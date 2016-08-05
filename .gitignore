@@ -13,3 +13,4 @@
 node_modules/
 # 忽略.project 文件
 .project
+.vscode
