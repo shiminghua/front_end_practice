@@ -15,6 +15,8 @@
     --profile 输出性能数据，可以看到每一步的耗时
     --display-modules 默认情况下 node_modules 下的模块会被隐藏，加上这个参数可以显示这些被隐藏的模块
 
+    webpack --colors --watch --progress --display-error-details
+
 
 # externals  外部资源，引入第三方库
     /*********************
