@@ -1,16 +1,15 @@
-function* gen() {
-    yield 'hello';
-    yield* ['a', 'b', 'c'];
-    return 'world';
+let clock = function* (_) {
+    while (true) {
+        yield _;
+        console.log('tick!');
+        yield _;
+        console.log('tock!');
+    }
 }
-let g = gen();
-// for (let i = 0; i < 5; i++) {
-//     console.log(g.next());
-// }
-let done = false;
-do {
-    let obj = g.next();
-    console.log(obj);
-    done = obj.done;
-}
-while (!done);
+
+let g = clock('a');
+g.next();
+console.log(111);
+g.next();
+g.next();
+g.next();
