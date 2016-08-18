@@ -9,13 +9,15 @@ let HtmlWebpackPlugin = require('html-webpack-plugin');
 let htmlPlugin = [];
 let pathsHtml = FilesPath.getPaths(Configure.html, 'app/', 'build/');
 
+console.log(pathsHtml);
+
 let ConfigureCommonChunks =  Configure.commonChunk;
 let htmlChunks = [];
 
 for(let key in ConfigureCommonChunks) {
     htmlChunks.push(key);
 }
-
+console.log(pathsHtml);
 pathsHtml.dist.forEach(function(path, i) {
     htmlPlugin.push(
         new HtmlWebpackPlugin({
@@ -51,7 +53,7 @@ pathsHtml.dist.forEach(function(path, i) {
     );
 
 });
-// console.log(htmlPlugin[0].options.chunks);
+// console.log(htmlPlugin[0]);
 module.exports = htmlPlugin;
 
 /***********************

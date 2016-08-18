@@ -178,5 +178,5 @@ let WebpackConfig = {
     */
     plugins: pluginsArr.concat(HtmlPlugin)
 };
-
+// console.log(WebpackConfig);
 module.exports = WebpackConfig;

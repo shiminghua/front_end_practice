@@ -6,8 +6,8 @@ let FilesPath = require('./filesPath');
 
 let entry = Alias.alia;
 let pathsJS = FilesPath.getPaths(Path.join(Configure.client, '/resources/**/*index.js'), '', '');
-// let webPackDevServer = 'webpack-dev-server/client?' + Configure.path;
-// let hotMiddlewareScript = 'webpack-hot-middleware/client?quiet=true&reload=true&path=/__webpack-hmr';
+
+console.log(pathsJS);
 
 // environment
 
